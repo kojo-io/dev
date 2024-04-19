@@ -1,0 +1,30 @@
+<div class="md:container md:mx-auto my-[20px]">
+  <div class="grid grid-cols-4 gap-[20px]">
+    <section class="col-span-3 p-10 rounded-3xl grid grid-cols-1 gap-[20px]">
+      <div class="h-[500px] w-full bg-gray-300 rounded-3xl relative overflow-hidden">
+        <div class="inset-0 absolute group">
+          <div class="w-full h-full hidden group-hover:block">
+            <div class="w-full h-full flex justify-center items-center">
+              <div class="w-32 h-32 bg-gray-400/30 rounded-full flex items-center justify-center cursor-pointer">
+                <i class="fa-solid fa-play text-5xl"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="space-y-4">
+        <h1 class="truncate w-full overflow-ellipsis font-semibold text-4xl leading-none">Course one</h1>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non diam id ex eleifend laoreet. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed id dui eget lorem venenatis dictum vel vel ligula. Integer vehicula eu libero nec convallis.
+        </p>
+        <div class="flex items-center space-x-2 mt-5">
+          <span class="text-base font-semibold font-serif">3.0</span><tc-ratings size="5" [disable]="true" [ngModel]="3" ></tc-ratings>
+        </div>
+        <div>
+          <tc-button size="extra large" type="success">Continue</tc-button>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</div>
