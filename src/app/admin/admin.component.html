@@ -1,1 +1,123 @@
-<p>admin works!</p>
+<div *ngIf="loading" class="fixed top-0 left-0 right-0 z-[1000]">
+  <tc-indeterminate-progress type="success"></tc-indeterminate-progress>
+</div>
+<div class="h-screen w-screen">
+  <div class="flex flex-col w-full h-full divide-y divide-[#edf2f9]">
+    <div class="h-[70px] w-full flex divide-x divide-[#edf2f9]">
+      <div class="flex-none h-full transform ease-in-out duration-300 cursor-pointer" routerLink="/" [class.w-[280px]]="!collapse" [class.w-[80px]]="collapse">
+        <div class="w-full h-full flex items-center px-3 justify-center" *ngIf="!collapse">
+          <img src="assets/FXUGYN%20LOGO.png" class="w-32">
+        </div>
+        <div class="w-full h-full flex items-center px-3 justify-center" *ngIf="collapse">
+          <h1 class="text-green-900">FXUGYN</h1>
+        </div>
+      </div>
+      <div class="flex-grow w-full h-full px-5">
+        <div class="w-full h-full flex items-center justify-between">
+          <div class="flex space-x-4 items-center">
+            <div (click)="collapseSide()" class="hover:bg-green-900/10 py-1.5 px-3 rounded-lg group cursor-pointer">
+              <i class="fa-solid fa-bars text-gray-900 text-xl group-hover:text-green-900 group-hover:cursor-pointer"></i>
+            </div>
+            <h1 class="text-2xl">
+              {{header}}
+            </h1>
+          </div>
+          <div class="flex space-x-4 items-center">
+            <div class="group">
+              <div class="flex space-x-4 items-center group-hover:cursor-pointer" TcMenu [menu]="menuElement">
+                <div class="w-10 h-10 p-1 rounded-full ring-2 ring-green-900 items-center justify-center flex">
+                  <span class="text-2xl font-semibold">{{user.fullName.split(' ')[0][0]}}{{user.fullName.split(' ')[1][0]}}</span>
+                </div>
+                <i class="fa-solid fa-chevron-down"></i>
+              </div>
+              <div #menuElement class="absolute border border-gray-100 mt-2 rounded-lg min-w-[300px] max-h-[300px] dropdown-menu-list overflow-auto divide-y bg-white z-10 shadow-2xl hidden">
+                <div class="p-4 flex items-center space-x-3">
+                  <div class="w-10 h-10 p-1 rounded-full ring-2 ring-green-900 items-center justify-center flex">
+                    <span class="text-2xl font-semibold">{{user.fullName.split(' ')[0][0]}}{{user.fullName.split(' ')[1][0]}}</span>
+                  </div>
+                  <span class="font-semibold">{{user.fullName}}</span>
+                </div>
+                <div routerLink="/" class="p-1 cursor-pointer font-semibold">
+                  <div class="py-1 px-1.5 cursor-pointer hover:text-green-900">
+                    <span class="block">Home</span>
+                  </div>
+                </div>
+                <div class="p-1 cursor-pointer font-semibold">
+                  <div class="py-1 px-1.5 cursor-pointer hover:text-green-900">
+                    <span class="block">Change Password</span>
+                  </div>
+                </div>
+                <div routerLink="/" class="p-1 cursor-pointer font-semibold">
+                  <div class="py-1 px-1.5 cursor-pointer hover:text-green-900">
+                    <span class="block">Log out</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="grow h-full overflow-auto">
+      <div class="flex flex-col w-full h-full">
+        <div class="flex w-full h-full divide-x divide-[#edf2f9]">
+          <div class="flex-none h-full transform ease-in-out duration-300" [class.w-[280px]]="!collapse" [class.w-[80px]]="collapse">
+            <div class="w-full h-full">
+              <ul class="w-full">
+                <li routerLink="/admin/dashboard" routerLinkActive="bg-green-900/10 border-r-[3px] border-r-green-900 text-green-900 group"
+                    class="w-full py-[2px] cursor-pointer mb-[8px] text-gray-600" [class.pl-[20px]]="!collapse">
+                  <div routerLinkActive="text-green-900" class="h-[40px] text-[14px] flex items-center leading-[45px] space-x-3 group-hover:cursor-pointer group-hover:text-green-900" [class.justify-center]="collapse">
+                    <i class="fa-solid fa-chart-line group-hover:cursor-pointer"></i>
+                    <span *ngIf="!collapse" class="group-hover:cursor-pointer">Dashboard</span>
+                  </div>
+                </li>
+                <li routerLink="/admin/courses" routerLinkActive="bg-green-900/10 border-r-[3px] border-r-green-900 text-green-900 group"
+                    class="w-full py-[2px] cursor-pointer mb-[8px] text-gray-600" [class.pl-[20px]]="!collapse">
+                  <div routerLinkActive="text-green-900" class="h-[40px] text-[14px] flex items-center leading-[45px] space-x-3 group-hover:cursor-pointer group-hover:text-green-900" [class.justify-center]="collapse">
+                    <i class="fa-solid fa-film group-hover:cursor-pointer"></i>
+                    <span *ngIf="!collapse" class="group-hover:cursor-pointer">Courses</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="flex-grow w-full h-full overflow-auto">
+            <div class="flex flex-col h-full w-full bg-gray-100">
+              <div class="grow h-full w-full overflow-auto relative">
+                <router-outlet></router-outlet>
+              </div>
+              <div class="h-[70px] w-full border-t border-t-[#edf2f9] px-10 flex items-center justify-between text-sm text-gray-600">
+                <span>Copyright &copy; {{date.getUTCFullYear()}} FxUgn. All rights reserved. Powered by kojo-io</span>
+                <div class="space-x-2">
+                  <a href="/">Terms & Conditions</a>
+                  <a href="/">Privacy Policy</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--<ng-template #changePass>-->
+<!--  <div class="w-[500px] flex flex-col divide-y">-->
+<!--    <div class="h-[45px] flex justify-between items-center px-4">-->
+<!--      <span class="uppercase">CHANGE PASSWORD</span>-->
+<!--      <i (click)="myModal.close()" class="fa-solid fa-times text-green-600 text-lg cursor-pointer"></i>-->
+<!--    </div>-->
+<!--    <form [formGroup]="form" class="p-4">-->
+<!--      <div>-->
+<!--        <tc-input formControlName="oldPassword" label="Old Password"></tc-input>-->
+<!--      </div>-->
+<!--      <div>-->
+<!--        <tc-input formControlName="newPassword" label="New Password"></tc-input>-->
+<!--      </div>-->
+<!--    </form>-->
+<!--    <div class="space-x-3 py-2 px-4">-->
+<!--      <tc-button (click)="myModal.close()" type="danger" outline>Cancel</tc-button>-->
+<!--      <tc-button (click)="changePassword()" type="danger" [disabled]="loading">Submit</tc-button>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</ng-template>-->

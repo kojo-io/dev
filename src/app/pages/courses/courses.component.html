@@ -1,1 +1,201 @@
-<p>courses works!</p>
+<div class="md:container md:mx-auto my-[20px] h-screen">
+  <div class="grid grid-cols-4 gap-[20px] h-full">
+    <div class="relative h-full">
+      <div class="p-5 bg-gray-200 rounded-3xl sticky top-10">
+
+      </div>
+    </div>
+    <div class="col-span-3 flex flex-col h-full space-y-10">
+      <section class="col-span-4 flex justify-center">
+        <tc-pagination
+          type="success"
+          [pageNumber]="maindata?.pageNumber"
+          [pageSize]="maindata?.pageSize"
+          (pageNumberChange)="pageNumberChange($event)"
+          (pageSizeChange)="pageSizeChange($event)"
+          [totalPages]="maindata?.totalPages"
+          [totalRecords]="maindata?.totalRecords"
+        ></tc-pagination>
+      </section>
+
+      <div class="grow h-full w-full overflow-auto">
+        <div class="grid grid-cols-4 gap-[20px] ">
+         @if(loading) {
+           <div class="w-full space-y-4">
+             <div class="w-full h-[200px] bg-gray-300 rounded-3xl animate-pulse"></div>
+             <div class="space-y-3">
+               <div class="w-[80%] h-6 rounded-xl animate-pulse bg-gray-200">
+               </div>
+               <div class="w-[60%] h-6 rounded-xl animate-pulse bg-gray-200">
+               </div>
+               <div class="w-[40%] h-6 rounded-xl animate-pulse bg-gray-200">
+               </div>
+             </div>
+           </div>
+           <div class="w-full space-y-4">
+             <div class="w-full h-[200px] bg-gray-300 rounded-3xl animate-pulse"></div>
+             <div class="space-y-3">
+               <div class="w-[80%] h-6 rounded-xl animate-pulse bg-gray-200">
+               </div>
+               <div class="w-[60%] h-6 rounded-xl animate-pulse bg-gray-200">
+               </div>
+               <div class="w-[40%] h-6 rounded-xl animate-pulse bg-gray-200">
+               </div>
+             </div>
+           </div>
+           <div class="w-full space-y-4">
+             <div class="w-full h-[200px] bg-gray-300 rounded-3xl animate-pulse"></div>
+             <div class="space-y-3">
+               <div class="w-[80%] h-6 rounded-xl animate-pulse bg-gray-200">
+               </div>
+               <div class="w-[60%] h-6 rounded-xl animate-pulse bg-gray-200">
+               </div>
+               <div class="w-[40%] h-6 rounded-xl animate-pulse bg-gray-200">
+               </div>
+             </div>
+           </div>
+           <div class="w-full space-y-4">
+             <div class="w-full h-[200px] bg-gray-300 rounded-3xl animate-pulse"></div>
+             <div class="space-y-3">
+               <div class="w-[80%] h-6 rounded-xl animate-pulse bg-gray-200">
+               </div>
+               <div class="w-[60%] h-6 rounded-xl animate-pulse bg-gray-200">
+               </div>
+               <div class="w-[40%] h-6 rounded-xl animate-pulse bg-gray-200">
+               </div>
+             </div>
+           </div>
+           <div class="w-full space-y-4">
+             <div class="w-full h-[200px] bg-gray-300 rounded-3xl animate-pulse"></div>
+             <div class="space-y-3">
+               <div class="w-[80%] h-6 rounded-xl animate-pulse bg-gray-200">
+               </div>
+               <div class="w-[60%] h-6 rounded-xl animate-pulse bg-gray-200">
+               </div>
+               <div class="w-[40%] h-6 rounded-xl animate-pulse bg-gray-200">
+               </div>
+             </div>
+           </div>
+           <div class="w-full space-y-4">
+             <div class="w-full h-[200px] bg-gray-300 rounded-3xl animate-pulse"></div>
+             <div class="space-y-3">
+               <div class="w-[80%] h-6 rounded-xl animate-pulse bg-gray-200">
+               </div>
+               <div class="w-[60%] h-6 rounded-xl animate-pulse bg-gray-200">
+               </div>
+               <div class="w-[40%] h-6 rounded-xl animate-pulse bg-gray-200">
+               </div>
+             </div>
+           </div>
+           <div class="w-full space-y-4">
+             <div class="w-full h-[200px] bg-gray-300 rounded-3xl animate-pulse"></div>
+             <div class="space-y-3">
+               <div class="w-[80%] h-6 rounded-xl animate-pulse bg-gray-200">
+               </div>
+               <div class="w-[60%] h-6 rounded-xl animate-pulse bg-gray-200">
+               </div>
+               <div class="w-[40%] h-6 rounded-xl animate-pulse bg-gray-200">
+               </div>
+             </div>
+           </div>
+           <div class="w-full space-y-4">
+             <div class="w-full h-[200px] bg-gray-300 rounded-3xl animate-pulse"></div>
+             <div class="space-y-3">
+               <div class="w-[80%] h-6 rounded-xl animate-pulse bg-gray-200">
+               </div>
+               <div class="w-[60%] h-6 rounded-xl animate-pulse bg-gray-200">
+               </div>
+               <div class="w-[40%] h-6 rounded-xl animate-pulse bg-gray-200">
+               </div>
+             </div>
+           </div>
+           <div class="w-full space-y-4">
+             <div class="w-full h-[200px] bg-gray-300 rounded-3xl animate-pulse"></div>
+             <div class="space-y-3">
+               <div class="w-[80%] h-6 rounded-xl animate-pulse bg-gray-200">
+               </div>
+               <div class="w-[60%] h-6 rounded-xl animate-pulse bg-gray-200">
+               </div>
+               <div class="w-[40%] h-6 rounded-xl animate-pulse bg-gray-200">
+               </div>
+             </div>
+           </div>
+           <div class="w-full space-y-4">
+             <div class="w-full h-[200px] bg-gray-300 rounded-3xl animate-pulse"></div>
+             <div class="space-y-3">
+               <div class="w-[80%] h-6 rounded-xl animate-pulse bg-gray-200">
+               </div>
+               <div class="w-[60%] h-6 rounded-xl animate-pulse bg-gray-200">
+               </div>
+               <div class="w-[40%] h-6 rounded-xl animate-pulse bg-gray-200">
+               </div>
+             </div>
+           </div>
+           <div class="w-full space-y-4">
+             <div class="w-full h-[200px] bg-gray-300 rounded-3xl animate-pulse"></div>
+             <div class="space-y-3">
+               <div class="w-[80%] h-6 rounded-xl animate-pulse bg-gray-200">
+               </div>
+               <div class="w-[60%] h-6 rounded-xl animate-pulse bg-gray-200">
+               </div>
+               <div class="w-[40%] h-6 rounded-xl animate-pulse bg-gray-200">
+               </div>
+             </div>
+           </div>
+           <div class="w-full space-y-4">
+             <div class="w-full h-[200px] bg-gray-300 rounded-3xl animate-pulse"></div>
+             <div class="space-y-3">
+               <div class="w-[80%] h-6 rounded-xl animate-pulse bg-gray-200">
+               </div>
+               <div class="w-[60%] h-6 rounded-xl animate-pulse bg-gray-200">
+               </div>
+               <div class="w-[40%] h-6 rounded-xl animate-pulse bg-gray-200">
+               </div>
+             </div>
+           </div>
+         } @else {
+           @for (item of courses; track item) {
+             <div class="w-full space-y-4 cursor-pointer group" routerLink="/courses/{{item.id}}">
+               <div class="w-full h-[200px] bg-cover bg-center rounded-3xl relative border border-green-900 overflow-hidden" [ngStyle]="{'background-image': 'url('+item.video?.imageUrl+')'}">
+                 <div class="inset-0 absolute">
+                   <div class="w-full h-full hidden group-hover:block bg-gray-900/50">
+                     <div class="w-full h-full flex justify-center items-center">
+                       <div class="w-32 h-32 bg-gray-600/60 rounded-full flex items-center justify-center cursor-pointer">
+                         <i class="fa-solid fa-play text-5xl"></i>
+                       </div>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+               <div>
+                 <h1 class="truncate w-full overflow-ellipsis font-semibold text-xl leading-none">{{item.title}}</h1>
+                 <div>
+                   <span class="text-sm bg-green-800 text-white px-2 py-1 rounded-full font-semibold">{{ item.levelName }}</span>
+                 </div>
+                 <div class="flex items-center space-x-2">
+                   <span class="text-base font-semibold font-serif">3.0</span><tc-ratings size="5" [disable]="true" [ngModel]="3" ></tc-ratings>
+                 </div>
+                 <h1 class="truncate w-full overflow-ellipsis font-semibold text-xl leading-none mt-3">
+                   {{item.video?.price | currency : 'Ghc'}}
+                 </h1>
+               </div>
+             </div>
+           }
+         }
+        </div>
+      </div>
+
+      <section class="col-span-4 flex justify-center">
+        <tc-pagination
+          type="success"
+          [pageNumber]="maindata?.pageNumber"
+          [pageSize]="maindata?.pageSize"
+          (pageNumberChange)="pageNumberChange($event)"
+          (pageSizeChange)="pageSizeChange($event)"
+          [totalPages]="maindata?.totalPages"
+          [totalRecords]="maindata?.totalRecords"
+        ></tc-pagination>
+      </section>
+    </div>
+  </div>
+</div>

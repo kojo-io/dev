@@ -2,13 +2,22 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { CoursesRoutingModule } from './courses-routing.module';
+import { CoursesComponent } from './courses.component';
+import {TcButtonModule, TcPaginationModule, TcRatingsModule} from "toll-ui";
+import {FormsModule} from "@angular/forms";
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    CoursesComponent
+  ],
   imports: [
     CommonModule,
-    CoursesRoutingModule
+    CoursesRoutingModule,
+    TcButtonModule,
+    TcRatingsModule,
+    FormsModule,
+    TcPaginationModule
   ]
 })
 export class CoursesModule { }

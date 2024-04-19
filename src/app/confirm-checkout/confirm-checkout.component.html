@@ -1,5 +1,10 @@
-<div class="md:container md:mx-auto my-[20px] h-screen border">
-  <div class="w-full justify-center flex">
-    <img src="assets/exclamation-mark.png" class="w-32">
+<div class="md:container md:mx-auto h-screen">
+  <div class="w-full justify-center flex flex-col items-center h-full space-y-4">
+    <img [src]="icon" class="w-32">
+    <h1 class="text-3xl font-bold">{{title}}</h1>
+    <h1>{{ subTitle }}</h1>
+    <div class="w-96">
+      <tc-button size="extra large" type="success" block (click)="errorUpdate()">{{ buttonText }}</tc-button>
+    </div>
   </div>
 </div>

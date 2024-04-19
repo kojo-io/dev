@@ -1,18 +1,18 @@
 import { Injectable } from '@angular/core';
 import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse} from '@angular/common/http';
-import {BaseService} from './base.service';
 import {map} from 'rxjs/operators';
 import {Observable} from 'rxjs';
 import {Router} from '@angular/router';
+import {AuthService} from "./auth.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class HttpinterceptorService implements HttpInterceptor {
   contentType: any;
-  constructor(public baseService: BaseService,
+  constructor(public authService: AuthService,
               private router: Router) {
-    baseService.currentContent.subscribe(u => {
+    authService.currentContent.subscribe(u => {
       this.contentType = u;
     });
   }
@@ -27,13 +27,13 @@ export class HttpinterceptorService implements HttpInterceptor {
       map(event => {
         if ( event instanceof HttpResponse) {
           if (event.body.status === 102) {
-            this.baseService.clearSessionData();
-            this.router.navigate(['/auth/login']);
+            this.authService.clearSessionData();
+            this.router.navigate(['/']);
             return event;
           }else if (event.body.status === 103) {
             this.setUserData(event.body.data);
-            this.baseService.SetContentType({
-              Authorization: `Bearer ${this.baseService.getToken().token}`,
+            this.authService.SetContentType({
+              Authorization: `Bearer ${this.authService.token.token}`,
               Accept: 'application/json'
             });
             return event;
@@ -48,6 +48,6 @@ export class HttpinterceptorService implements HttpInterceptor {
   }
 
   setUserData(result: any): void {
-    this.baseService.setSessionData(result);
+    this.authService.setSessionData(result);
   }
 }

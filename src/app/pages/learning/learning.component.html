@@ -1,1 +1,107 @@
-<p>learning works!</p>
+<div class="md:container md:mx-auto my-[20px]">
+  <div class="grid grid-cols-4 gap-[20px]">
+    <section class="col-span-4 p-20 bg-green-900/10 rounded-3xl flex flex-col justify-center">
+      <div>
+        <span class="text-xl bg-green-900 text-white px-2 rounded-full font-semibold">Beginner</span>
+      </div>
+      <h1 class="text-green-900 text-5xl pb-2.5 font-semibold">Welcome, Bernard</h1>
+      <h1 class="text-green-900 text-6xl font-semibold">
+        What are you learning today?
+      </h1>
+    </section>
+
+    <section class="col-span-4">
+      <div class="flex justify-between items-center w-full py-2">
+        <h1 class="text-2xl font-semibold">
+          Currently Learning
+        </h1>
+      </div>
+      <hr>
+    </section>
+    <section class="col-span-4 p-10 border border-green-900/10 rounded-3xl grid grid-cols-2 gap-[20px]">
+      <div class="h-[400px] w-full bg-gray-300 rounded-3xl relative overflow-hidden">
+        <div class="inset-0 absolute group">
+          <div class="w-full h-full hidden group-hover:block">
+            <div class="w-full h-full flex justify-center items-center">
+              <div class="w-32 h-32 bg-gray-400/30 rounded-full flex items-center justify-center cursor-pointer">
+                <i class="fa-solid fa-play text-5xl"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-col">
+        <div class="grow h-full w-full">
+          <h1 class="truncate w-full overflow-ellipsis font-semibold text-2xl leading-none">Course one</h1>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non diam id ex eleifend laoreet. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed id dui eget lorem venenatis dictum vel vel ligula. Integer vehicula eu libero nec convallis.
+          </p>
+          <div class="flex items-center space-x-2 mt-10">
+            <span class="text-base font-semibold font-serif">3.0</span><tc-ratings size="5" [disable]="true" [ngModel]="3" ></tc-ratings>
+          </div>
+        </div>
+        <div>
+          <tc-button size="extra large" type="success">Continue</tc-button>
+        </div>
+      </div>
+    </section>
+
+    <section class="col-span-4">
+      <div class="flex justify-between items-center w-full py-2">
+        <h1 class="text-2xl font-semibold">
+          My Courses
+        </h1>
+      </div>
+      <hr>
+    </section>
+
+    <div routerLink="/courses/course" class="w-full space-y-4">
+      <div class="w-full h-[200px] bg-gray-300 rounded-3xl"></div>
+      <div>
+        <h1 class="truncate w-full overflow-ellipsis font-semibold text-xl leading-none">Course one</h1>
+        <div class="flex items-center space-x-2">
+          <span class="text-base font-semibold font-serif">3.0</span><tc-ratings size="5" [disable]="true" [ngModel]="3" ></tc-ratings>
+        </div>
+        <h1 class="truncate w-full overflow-ellipsis font-semibold text-xl leading-none mt-3">
+          {{30 | currency : 'Ghc'}}
+        </h1>
+      </div>
+    </div>
+    <div class="w-full space-y-4">
+      <div class="w-full h-[200px] bg-gray-300 rounded-3xl"></div>
+      <div>
+        <h1 class="truncate w-full overflow-ellipsis font-semibold text-xl leading-none">Course one</h1>
+        <div class="flex items-center space-x-2">
+          <span class="text-base font-semibold font-serif">3.0</span><tc-ratings size="5" [disable]="true" [ngModel]="3" ></tc-ratings>
+        </div>
+        <h1 class="truncate w-full overflow-ellipsis font-semibold text-xl leading-none mt-3">
+          {{30 | currency : 'Ghc'}}
+        </h1>
+      </div>
+    </div>
+    <div class="w-full space-y-4">
+      <div class="w-full h-[200px] bg-gray-300 rounded-3xl"></div>
+      <div>
+        <h1 class="truncate w-full overflow-ellipsis font-semibold text-xl leading-none">Course one</h1>
+        <div class="flex items-center space-x-2">
+          <span class="text-base font-semibold font-serif">3.0</span><tc-ratings size="5" [disable]="true" [ngModel]="3" ></tc-ratings>
+        </div>
+        <h1 class="truncate w-full overflow-ellipsis font-semibold text-xl leading-none mt-3">
+          {{30 | currency : 'Ghc'}}
+        </h1>
+      </div>
+    </div>
+    <div class="w-full space-y-4">
+      <div class="w-full h-[200px] bg-gray-300 rounded-3xl"></div>
+      <div>
+        <h1 class="truncate w-full overflow-ellipsis font-semibold text-xl leading-none">Course one</h1>
+        <div class="flex items-center space-x-2">
+          <span class="text-base font-semibold font-serif">3.0</span><tc-ratings size="5" [disable]="true" [ngModel]="3" ></tc-ratings>
+        </div>
+        <h1 class="truncate w-full overflow-ellipsis font-semibold text-xl leading-none mt-3">
+          {{30 | currency : 'Ghc'}}
+        </h1>
+      </div>
+    </div>
+  </div>
+</div>

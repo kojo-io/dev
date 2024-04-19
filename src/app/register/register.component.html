@@ -1,1 +1,25 @@
-<p>register works!</p>
+<div class="w-[500px] flex flex-col p-14 space-y-4 relative bg-white rounded-3xl">
+  @if(loading) {
+    <div class="absolute hidden top-0 left-0 right-0">
+      <tc-indeterminate-progress type="success"></tc-indeterminate-progress>
+    </div>
+  } @else {
+    <div (click)="ref.close()" class=" cursor-pointer absolute -top-[16px] -right-[16px] w-8 h-8 bg-white shadow rounded-full flex items-center justify-center">
+      <i class="fa-solid fa-times text-2xl text-red-600"></i>
+    </div>
+  }
+  <h1 class="text-4xl mb-20">Register</h1>
+  <div>
+    <tc-input label="Full Name" type="text"></tc-input>
+  </div>
+  <div>
+    <tc-input label="Email" type="email"></tc-input>
+  </div>
+  <div class="relative">
+    <tc-input label="Password" size="normal" [type]="passwordVisible ? 'text' : 'password'"  placeholder="Password"></tc-input>
+    <i (click)="showPassword()" [class.fa-eye]="passwordVisible" [class.fa-eye-slash]="!passwordVisible" class="fa-solid absolute bottom-[13px] right-[8px] text-gray-400 cursor-pointer"></i>
+  </div>
+  <div class="relative">
+    <tc-button type="danger">Submit</tc-button>
+  </div>
+</div>

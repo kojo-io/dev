@@ -1,1 +1,104 @@
-<p>courses works!</p>
+<div *ngIf="loading" class="fixed top-0 left-0 right-0 z-[1000]">
+  <tc-indeterminate-progress type="success"></tc-indeterminate-progress>
+</div>
+
+<div class="flex flex-col h-full w-full divide-y divide-[#edf2f9]">
+  <div class="h-auto w-full p-5 bg-white space-y-4">
+    <h1 class="text-3xl font-semibold">Courses</h1>
+    <div class="h-auto w-full flex justify-between">
+      <div class="flex space-x-4 items-center">
+        <tc-button (click)="openModal()" type="success" size="small">UPLOAD COURSE</tc-button>
+        <div class="relative w-[250px]">
+          <tc-input size="small"></tc-input>
+          <i class="fa-solid fa-search absolute top-[9px] right-[6px] text-gray-400"></i>
+        </div>
+      </div>
+      <div class="flex space-x-4">
+        <tc-pagination
+          type="success"
+          [pageNumber]="maindata?.pageNumber"
+          [pageSize]="maindata?.pageSize"
+          (pageNumberChange)="pageNumberChange($event)"
+          (pageSizeChange)="pageSizeChange($event)"
+          [totalPages]="maindata?.totalPages"
+          [totalRecords]="maindata?.totalRecords"
+        ></tc-pagination>
+      </div>
+    </div>
+  </div>
+  <div class="grow flex h-full w-full overflow-auto divide-x divide-[#edf2f9]">
+    <div class="flex-grow w-full h-full overflow-auto">
+      <tc-table [fullScreen]="true" #Table [data]="courses">
+        <thead tcThead>
+        <tr>
+          <th tcTh>
+            <div class="flex space-x-3 items-center">
+              <div class="flex">
+                <i (click)="Table.sort('course.title')" class="fa-solid text-green-900 text-lg fa-sort-up cursor-pointer -mb-3 block"></i>
+                <i (click)="Table.sort('course.title', 'dsc')" class="fa-solid text-green-900 fa-sort-down text-lg -mt-3 cursor-pointer block"></i>
+              </div>
+              <span class="block">Title</span>
+            </div>
+          </th>
+          <th tcTh>
+            <div class="flex space-x-3 items-center">
+              <div class="flex">
+                <i (click)="Table.sort('course.description')" class="fa-solid text-green-900 text-lg fa-sort-up cursor-pointer -mb-3 block"></i>
+                <i (click)="Table.sort('course.description', 'dsc')" class="fa-solid text-green-900 fa-sort-down text-lg -mt-3 cursor-pointer block"></i>
+              </div>
+              <span class="block">Description</span>
+            </div>
+          </th>
+          <th tcTh>
+            <div class="flex space-x-3 items-center">
+              <div class="flex">
+                <i (click)="Table.sortNumber('course.level')" class="fa-solid text-green-900 text-lg fa-sort-up cursor-pointer -mb-3 block"></i>
+                <i (click)="Table.sort('course.level', 'dsc')" class="fa-solid text-green-900 fa-sort-down text-lg -mt-3 cursor-pointer block"></i>
+              </div>
+              <span class="block">Level</span>
+            </div>
+          </th>
+          <th tcTh>
+            <div class="flex space-x-3 items-center">
+              <div class="flex">
+                <i (click)="Table.sortNumber('price')" class="fa-solid text-green-900 text-lg fa-sort-up cursor-pointer -mb-3 block"></i>
+                <i (click)="Table.sortNumber('price', 'dsc')" class="fa-solid text-green-900 fa-sort-down text-lg -mt-3 cursor-pointer block"></i>
+              </div>
+              <span class="block whitespace-nowrap">Price</span>
+            </div>
+          </th>
+          <th tcTh></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr tcTr *ngFor="let course of Table.mainData">
+          <td tcTd>
+            {{course.title}}
+          </td>
+          <td tcTd>
+            <div class="w-[300px] whitespace-nowrap truncate overflow-ellipsis">
+              {{course.description}}
+            </div>
+          </td>
+          <td tcTd>
+            {{course.levelName}}
+          </td>
+          <td tcTd>{{course.video.price | currency: 'GHC ': 'code'}}</td>
+          <td tcTd>
+            <div class="flex items-center space-x-2">
+              <tc-button type="success" size="small" (click)="editItem(course)">Edit</tc-button>
+              <tc-button type="success" size="small" (click)="openVideo(course.video)">Play Video</tc-button>
+            </div>
+          </td>
+        </tr>
+        </tbody>
+      </tc-table>
+    </div>
+  </div>
+</div>
+
+<ng-template #vidplayer>
+  <div class="w-[1000px] h-full">
+    <video-player [data]="video" ></video-player>
+  </div>
+</ng-template>
